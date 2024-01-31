@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const connect = require('./db/connect');
 const notFound = require('./middleware/not-Found');
 const errorHandler = require('./middleware/error-Handler');
@@ -7,6 +8,7 @@ require('express-async-errors');
 require('dotenv').config();
 const port = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

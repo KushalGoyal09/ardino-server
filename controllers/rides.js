@@ -11,8 +11,7 @@ const allSimilarRides = async (req, res) => {
     const ride = await Ride.findById(rideID);
     const rides = await Ride.find({
         startingLocation: ride.startingLocation,
-        destinationLocation: ride.destinationLocation,
-        _id: { $ne: rideID }
+        destinationLocation: ride.destinationLocation
     });
     res.status(200).json({ success: true, rides });
 }
